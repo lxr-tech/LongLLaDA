@@ -4,10 +4,10 @@ Xiaoran Liu<sup>1,2</sup>, Zhigeng Liu<sup>1</sup>, Zengfeng Huang<sup>1,2</sup>
 
 <sup>1</sup> Fudan Univerisity, <sup>2</sup>Shanghai Innovation Institute, <sup>3</sup>Shanghai AI Laboratory
 
-[<a href="https://arxiv.org/abs/2506.14429">Paper</a>] | [<a href="https://github.com/OpenMOSS/LongLLaDA">Code</a>]
+[<a href="https://arxiv.org/abs/2506.14429">📝 Paper</a>] | [<a href="https://huggingface.co/papers/2506.14429">🤗 HF</a>] | [<a href="https://github.com/OpenMOSS/LongLLaDA">🚀 Code</a>]
 </div>
 
----
+<!-- --- -->
 ## Introduction
 
 In this work, we present the first systematic investigation comparing the long-context performance of diffusion LLMs and traditional auto-regressive LLMs. We first identify a unique characteristic of diffusion LLMs, unlike auto-regressive LLMs, they maintain remarkably ***stable perplexity*** during direct context extrapolation. 
@@ -115,7 +115,7 @@ vt_datasets = [
 python run.py eval/eval_llada_ruler.py --dump-eval-details -r
 ```
 
-## Performance
+## Results
 
 <p align="center">
 <img src="./img/direct_extra.png" width="750"/>

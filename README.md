@@ -26,7 +26,7 @@ Furthermore, we identify long-context tasks where diffusion LLMs outperform auto
 
 ### Prepare Your OpenCompass
 
-We run our experiments based on [OpenCompass](https://github.com/open-compass/opencompass).
+We run our downstream evaluation based on [OpenCompass](https://github.com/open-compass/opencompass).
 
 ```bash
 git clone https://github.com/open-compass/opencompass
@@ -40,7 +40,7 @@ The necessary Python packages we use and their corresponding versions.
 flash-attn==2.7.4.post1
 torch==2.6.0
 transformers==4.46.3
-opencompass=0.4.2
+opencompass==0.4.2
 ```
 
 ### Prepare Your Model
@@ -113,6 +113,28 @@ vt_datasets = [
 
 ```bash
 python run.py eval/eval_llada_ruler.py --dump-eval-details -r
+```
+
+### Perplexity (PPL) Evaluation
+
+> We calculate the perplexity in LongLLaDA directory instead of OpenCompass as follows.
+
+1. Execute the following command to get the perplexity curve of LLaMA3.
+
+```bash
+python ppl/get_ppl_llama.py 
+```
+
+2. Execute the following command to get the perplexity curve of LLaDA with block_size=64 for efficiency.
+
+```bash
+python ppl/get_ppl_llada.py 
+```
+
+3. Organize the related results and execute the following command to get Figure 1 in our paper.
+
+```bash
+python ppl/get_ppl_plot.py 
 ```
 
 ## Results

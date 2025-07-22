@@ -59,7 +59,7 @@ document_depth_percent_intervals = 25
 document_depth_percent_interval_type = 'linear'
 
 base_path = 'opencompass/needlebench'
-file_list = ['en_un_asr_xrliu.jsonl']  #  PaulGrahamEssays
+file_list = ['en_un_asr.jsonl']  #  PaulGrahamEssays
 needlebench_en_datasets = []
 needle_file_name = 'needles.jsonl'
 depths = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]

@@ -1,11 +1,5 @@
 <div align="center">
 <h1>LongLLaDA: Unlocking Long Context Capabilities in Diffusion LLMs</h1>
-Xiaoran Liu<sup>1,2</sup>, Zhigeng Liu<sup>1</sup>, Zengfeng Huang<sup>1,2</sup>, Qipeng Guo<sup>2,3</sup>, Ziwei He<sup>2,†</sup>, Xipeng Qiu<sup>1,2,†</sup>
-
-<sup>1</sup> Fudan Univerisity, <sup>2</sup>Shanghai Innovation Institute, <sup>3</sup>Shanghai AI Laboratory
-
-[<a href="https://arxiv.org/abs/2506.14429">📝 Paper</a>] | [<a href="https://huggingface.co/papers/2506.14429">🤗 HF</a>] | [<a href="https://github.com/OpenMOSS/LongLLaDA">🚀 Code</a>]
-</div>
 
 <!-- --- -->
 ## Introduction
@@ -150,14 +144,3 @@ python ppl/get_ppl_plot.py
 <p align="center">
 <img src="./img/ruler.png" width="750"/>
 <p>
-
-## Citation
-
-```
-@article{liu2025longllada,
-  title={LongLLaDA: Unlocking Long Context Capabilities in Diffusion LLMs},
-  author={Liu, Xiaoran and Liu, Zhigeng and Huang, Zengfeng and Guo, Qipeng and He, Ziwei and Qiu, Xipeng},
-  journal={arXiv preprint arXiv:2506.14429},
-  year={2025}
-}
-```

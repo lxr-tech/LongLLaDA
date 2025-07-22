@@ -1,5 +1,3 @@
-## copy from https://github.com/ML-GSAI/LLaDA/blob/main/generate.py
-
 import torch
 import numpy as np
 import torch.nn.functional as F

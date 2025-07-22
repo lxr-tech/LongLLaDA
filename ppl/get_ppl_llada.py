@@ -1,5 +1,3 @@
-# copy from projects_xrliu/LLaDA/my_get_log_likelihood.py
-
 import torch
 import torch.nn.functional as F
 

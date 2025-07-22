@@ -76,6 +76,13 @@ models = [
     ('llada_1_5_8b-o512_b64_s512-8k', {}, {'steps': 512, 'block_length': 64, }, 7500, 512), 
     ('llada_1_5_8b-o512_b64_s512-ntk4-8k', {'scaling_factor': 4}, {'steps': 512, 'block_length': 64, }, 7500, 512), 
 
+    ## dream series
+
+    ('dream_v0_7b_base-o512_s512-8k', {}, {'steps': 512, }, 7500, 512), 
+    ('dream_v0_7b_base-o512_s512-ntk5-8k', {'scaling_factor': 5}, {'steps': 512, }, 7500, 512), 
+    ('dream_v0_7b_chat-o512_s512-8k', {}, {'steps': 512, }, 7500, 512), 
+    ('dream_v0_7b_chat-o512_s512-ntk5-8k', {'scaling_factor': 5}, {'steps': 512, }, 7500, 512), 
+
     # 4k
     ## llama series
 

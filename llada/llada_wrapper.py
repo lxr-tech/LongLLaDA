@@ -145,7 +145,7 @@ class LLaDACausalLM(HuggingFaceBaseModel):
         self.scaling_config = scaling_config
 
         if model_type == 'dream':
-            self.diffusion_config = {'steps': 32, 'alg': 'origin', 'output_history': True, 'return_dict_in_generate': True, }
+            self.diffusion_config = {'steps': 32, 'alg': 'entropy', 'return_dict_in_generate': True, 'temperature': 0.2, 'top_p': 0.95}
         else:
             self.diffusion_config = {'steps': 128, 'block_length': 32, 'temperature': 0., 'cfg_scale': 0., 'remasking': 'low_confidence', }
         if diffusion_config is not None:
@@ -189,7 +189,7 @@ class LLaDACausalLM(HuggingFaceBaseModel):
                                                         torch_dtype=torch.float16, trust_remote_code=True)
         elif self.model_type == 'dream':
             self.model = AutoModel.from_pretrained(path, config=config, device_map='auto', 
-                                                   torch_dtype=torch.float16, trust_remote_code=True)
+                                                   torch_dtype=torch.bfloat16, trust_remote_code=True)
         else:        
             self.model = AutoModelForCausalLM.from_pretrained(path, config=config, device_map='auto', 
                                                         torch_dtype=torch.float16, trust_remote_code=True)
@@ -228,6 +228,8 @@ class LLaDACausalLM(HuggingFaceBaseModel):
                 input_ids = torch.cat([input_ids[:, : self.max_seq_len // 2], input_ids[:, - self.max_seq_len // 2:]], dim=-1)
             tokens = {'input_ids': input_ids, }
         else:
+            if self.model_type == 'dream':
+                messages = [self.tokenizer.bos_token + p for p in messages]
             tokens = self.tokenizer.batch_encode_plus(messages, **tokenize_kwargs)
 
         tokens = {k: v.to(self.model.device) for k, v in tokens.items()}
@@ -272,8 +274,15 @@ class LLaDACausalLM(HuggingFaceBaseModel):
 
         # step-3: decode the output
         decodeds = self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
-        for stop in stopping_criteria:
-            decodeds = [token.split(stop)[0] for token in decodeds]
+
+        if self.model_type == 'dream':
+            decodeds = [
+                token.split(self.tokenizer.eos_token)[0]  # 取切分后的第一部分
+                for token in decodeds  # 遍历所有生成的文本
+            ]    
+        else:
+            for stop in stopping_criteria:
+                decodeds = [token.split(stop)[0] for token in decodeds]
 
         return decodeds
 

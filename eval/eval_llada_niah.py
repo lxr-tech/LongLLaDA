@@ -103,12 +103,8 @@ models = [
     ### comparison on different scaling factors
 
     ('dream_v0_7b_base-o32_s32-ntk5', {'scaling_factor': 5}, {'steps': 32, }, 32), 
-    ('dream_v0_7b_base-o32_s32-ntk25', {'scaling_factor': 25}, {'steps': 32, }, 32), 
-    ('dream_v0_7b_base-o32_s32-ntk126', {'scaling_factor': 126}, {'steps': 32, }, 32), 
  
     ('dream_v0_7b_chat-o32_s32-ntk5', {'scaling_factor': 5}, {'steps': 32, }, 32), 
-    ('dream_v0_7b_chat-o32_s32-ntk25', {'scaling_factor': 25}, {'steps': 32, }, 32), 
-    ('dream_v0_7b_chat-o32_s32-ntk126', {'scaling_factor': 126}, {'steps': 32, }, 32), 
 
 ]
 

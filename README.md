@@ -1,5 +1,6 @@
 <div align="center">
 <h1>LongLLaDA: Unlocking Long Context Capabilities in Diffusion LLMs</h1>
+</div>
 
 <!-- --- -->
 ## Introduction

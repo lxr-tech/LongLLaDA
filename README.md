@@ -21,10 +21,10 @@ Furthermore, we identify long-context tasks where diffusion LLMs outperform auto
 
 ### Prepare Your OpenCompass
 
-We run our downstream evaluation based on OpenCompass.
+We run our downstream evaluation based on OpenCompass. 
 
 ```bash
-git clone https://github.com/open-compass/opencompass
+git clone open-compass/opencompass
 cd opencompass
 pip install -e .
 ```

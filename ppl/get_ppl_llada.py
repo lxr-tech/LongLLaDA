@@ -1,3 +1,5 @@
+# modified based on ML-GSAI/LLaDA/blob/main/get_log_likelihood.py
+
 import torch
 import torch.nn.functional as F
 
